@@ -128,13 +128,6 @@ helm uninstall kubetimize-backend -n kubetimize
 
 ---
 
-## Notes
-
-- Ensure that required Kubernetes resources (e.g., ConfigMaps, Secrets) are properly created before deploying the charts.
-- If you encounter issues, check the logs of the deployed Pods for debugging.
-
----
-
 ## Support
 
 For further assistance, please reach out to the Kubetimize support team or visit the documentation site.
