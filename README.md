@@ -4,8 +4,8 @@
 
 This repository contains Helm charts for deploying Kubetimize components, including:
 
-1. **Kubetimize Backend Helm Chart**
-2. **Kubetimize Helm Chart (Parent Chart)**
+1. **Kubetimize Helm Chart**
+2. **Kubetimize Backend Helm Chart**
 
 Each chart is designed to simplify the deployment of Kubetimize on Kubernetes, with customizable variables for flexible configurations.
 
@@ -24,7 +24,7 @@ Each chart is designed to simplify the deployment of Kubetimize on Kubernetes, w
 #### 1. Add the Helm Repository
 
 ```bash
-helm repo add kubetimize https://your-helm-repo-url
+helm repo add kubetimize https://chart.kubetimize.io
 helm repo update
 ```
 
@@ -54,6 +54,21 @@ helm install kubetimize-backend kubetimize/kubetimize-backend \
 ## Configuration
 
 Each chart supports a variety of configuration options through the `values.yaml` file. Below is a detailed list of configurable variables for each chart.
+### Kubetimize Helm Chart
+
+| Parameter                        | Description                           | Default            |
+| -------------------------------- | ------------------------------------- | ------------------ |
+| `backend.enabled`                | Deploy the backend component          | `true`             |
+| `frontend.enabled`               | Deploy the frontend component         | `true`             |
+| `global.imagePullSecrets`        | Image pull secrets for all components | `[]`               |
+| `global.namespace`               | Namespace for all components          | `kubetimize`       |
+| `backend.replicaCount`           | Number of replicas for backend        | `1`                |
+| `frontend.replicaCount`          | Number of replicas for frontend       | `1`                |
+| `ingress.enabled`                | Enable ingress for the application    | `false`            |
+| `ingress.hosts[0].host`          | Hostname for the ingress              | `kubetimize.local` |
+| `ingress.hosts[0].paths[0].path` | Path for the ingress                  | `/`                |
+| `ingress.tls`                    | TLS configuration for ingress         | `[]`               |
+
 
 ### Kubetimize Backend Helm Chart
 
@@ -72,21 +87,6 @@ Each chart supports a variety of configuration options through the `values.yaml`
 | `nodeSelector`              | Node selector for scheduling         | `{}`                 |
 | `tolerations`               | Tolerations for pod scheduling       | `[]`                 |
 | `affinity`                  | Affinity settings for pod scheduling | `{}`                 |
-
-### Kubetimize Parent Chart
-
-| Parameter                        | Description                           | Default            |
-| -------------------------------- | ------------------------------------- | ------------------ |
-| `backend.enabled`                | Deploy the backend component          | `true`             |
-| `frontend.enabled`               | Deploy the frontend component         | `true`             |
-| `global.imagePullSecrets`        | Image pull secrets for all components | `[]`               |
-| `global.namespace`               | Namespace for all components          | `kubetimize`       |
-| `backend.replicaCount`           | Number of replicas for backend        | `1`                |
-| `frontend.replicaCount`          | Number of replicas for frontend       | `1`                |
-| `ingress.enabled`                | Enable ingress for the application    | `false`            |
-| `ingress.hosts[0].host`          | Hostname for the ingress              | `kubetimize.local` |
-| `ingress.hosts[0].paths[0].path` | Path for the ingress                  | `/`                |
-| `ingress.tls`                    | TLS configuration for ingress         | `[]`               |
 
 ---
 
