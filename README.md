@@ -28,7 +28,7 @@ helm repo add kubetimize https://chart.kubetimize.io
 helm repo update
 ```
 
-#### 2. Install the Kubetimize Parent Chart
+#### 2. Install the Kubetimize Chart
 
 ```bash
 helm install kubetimize kubetimize/kubetimize \
