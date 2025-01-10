@@ -58,7 +58,7 @@ Each chart supports a variety of configuration options through the `values.yaml`
 
 | Parameter                        | Description                           | Default            |
 | -------------------------------- | ------------------------------------- | ------------------ |
-| `apiKey`                         | Generated API Key from account        | `true`             |
+| `apiKey`                         | Generated API Key from account        | ``             |
 | `backend.enabled`                | Deploy the backend component          | `true`             |
 | `frontend.enabled`               | Deploy the frontend component         | `true`             |
 | `global.imagePullSecrets`        | Image pull secrets for all components | `[]`               |
